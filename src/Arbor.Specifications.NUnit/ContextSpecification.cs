@@ -52,43 +52,28 @@ namespace Arbor.Specifications.NUnit
 
         private async Task<string> InvokeGivenAsync()
         {
-            var types = new Stack<Type>();
             Type type = GetType();
 
-            do
-            {
-                types.Push(type);
-                type = type.GetTypeInfo().BaseType;
-            } while (type != typeof(ContextSpecification));
+            FieldInfo[] givenFields = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic |
+                                                     BindingFlags.FlattenHierarchy)
+                .Where(fieldInfo => fieldInfo.FieldType == typeof(Given))
+                .ToArray();
 
-            if (types.Count == 0)
+            if (givenFields.Length == 0)
             {
                 return "";
             }
 
-            foreach (Type currentType in types)
+            if (givenFields.Length > 1)
             {
-                FieldInfo[] givenFields = currentType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic |
-                                                                BindingFlags.FlattenHierarchy)
-                    .Where(fieldInfo => fieldInfo.FieldType == typeof(Given))
-                    .ToArray();
+                throw new InvalidOperationException($"There are more than one field of type {nameof(Given)}");
+            }
 
-                if (givenFields.Length == 0)
-                {
-                    return "";
-                }
-
-                if (givenFields.Length > 1)
-                {
-                    throw new InvalidOperationException($"There are more than one field of type {nameof(Given)}");
-                }
-
-                FieldInfo givenField = givenFields.Single();
-                if (givenField.GetValue(this) is Given givenDelegateAsync)
-                {
-                    Exception = await Catch.ExceptionAsync(() => givenDelegateAsync.Invoke());
-                    return givenField.Name;
-                }
+            FieldInfo givenField = givenFields.Single();
+            if (givenField.GetValue(this) is Given givenDelegateAsync)
+            {
+                Exception = await Catch.ExceptionAsync(() => givenDelegateAsync.Invoke());
+                return givenField.Name;
             }
 
             return "";

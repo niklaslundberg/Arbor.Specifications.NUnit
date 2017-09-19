@@ -36,7 +36,7 @@ namespace Arbor.Specifications.NUnit
 
             if (type != null)
             {
-                FieldInfo[] givenFields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+                FieldInfo[] givenFields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy)
                     .Where(field => field.FieldType == typeof(ContextSpecification.Given)).ToArray();
 
                 if (givenFields.Length == 1)
@@ -44,7 +44,7 @@ namespace Arbor.Specifications.NUnit
                     givenPrefix = "Given " + givenFields.Single().Name.NormalizeTestName() + ", ";
                 }
 
-                FieldInfo[] whenFields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
+                FieldInfo[] whenFields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy)
                     .Where(field => field.FieldType == typeof(ContextSpecification.When)).ToArray();
 
                 if (whenFields.Length == 1)
@@ -95,7 +95,7 @@ namespace Arbor.Specifications.NUnit
             object specification = Reflect.Construct(type);
 
             MemberInfo[] member = type.GetMember(SourceName,
-                BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
             if (member.Length == 1)
             {
                 MemberInfo memberInfo = member[0];
