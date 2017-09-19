@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Arbor.Specifications.NUnit</id>
+    <version>0.0.1</version>
+    <title>Arbor.Specifications.NUnit</title>
+    <authors>Niklas Lundberg</authors>
+    <owners></owners>
+    <description>
+      Arbor.Specifications.NUnit is a context/specification library for use with the NUnit testing framework based on https://github.com/derekgreer/nunit.specifications.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/niklaslundberg/Arbor.Specifications.NUnit</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/niklaslundberg/Arbor.Specifications.NUnit/blob/master/LICENSE.txt</licenseUrl>
+    <copyright>Copyright Niklas Lundberg 2017</copyright>
+    <dependencies>
+      <dependency id="System.Reflection.TypeExtensions" version="[4.4.0,5.0.0)" />
+      <dependency id="NUnit" version="[3.8.1,4.0.0)" />
+    </dependencies>
+    <references></references>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="Arbor.Specifications.NUnit\bin\$configuration$\netstandard2.0\Arbor.Specifications.NUnit.dll" target="lib\netstandard2.0" />
+    <file src="Arbor.Specifications.NUnit\bin\$configuration$\netcoreapp2.0\Arbor.Specifications.NUnit.dll" target="lib\netcoreapp2.0" />
+  </files>
+</package>
