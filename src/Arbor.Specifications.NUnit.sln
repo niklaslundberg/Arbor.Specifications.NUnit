@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{07CDA8B4-8F38-4B76-9960-E8854CBBC3EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifications", "{D7D794A6-5E72-451F-9749-5F3E1662515C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{32975A42-002A-45ED-BE1A-836332CBB293}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\build.bat = ..\build.bat
+		..\license.txt = ..\license.txt
+		..\NOTICE.txt = ..\NOTICE.txt
+		..\README.md = ..\README.md
+		..\version.json = ..\version.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbor.Specifications.NUnit", "Arbor.Specifications.NUnit\Arbor.Specifications.NUnit.csproj", "{3B638CD1-6FB8-47FD-A821-F85C892239A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbor.Specifications.NUnit.Specs", "Arbor.Specifications.NUnit.Specs\Arbor.Specifications.NUnit.Specs.csproj", "{794511FC-6D5C-458A-A364-A86648CAE72B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B638CD1-6FB8-47FD-A821-F85C892239A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B638CD1-6FB8-47FD-A821-F85C892239A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B638CD1-6FB8-47FD-A821-F85C892239A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B638CD1-6FB8-47FD-A821-F85C892239A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794511FC-6D5C-458A-A364-A86648CAE72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794511FC-6D5C-458A-A364-A86648CAE72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794511FC-6D5C-458A-A364-A86648CAE72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794511FC-6D5C-458A-A364-A86648CAE72B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B638CD1-6FB8-47FD-A821-F85C892239A1} = {07CDA8B4-8F38-4B76-9960-E8854CBBC3EF}
+		{794511FC-6D5C-458A-A364-A86648CAE72B} = {D7D794A6-5E72-451F-9749-5F3E1662515C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36FD797D-47ED-4807-8AAC-DB6B11EC5205}
+	EndGlobalSection
+EndGlobal

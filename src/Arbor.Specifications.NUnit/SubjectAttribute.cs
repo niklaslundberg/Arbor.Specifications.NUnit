@@ -1,7 +1,7 @@
 using System;
-using NUnit.Specifications.Annotations;
+using JetBrains.Annotations;
 
-namespace NUnit.Specifications
+namespace Arbor.Specifications.NUnit
 {
     [AttributeUsage(AttributeTargets.Assembly | AttributeTargets.Class)]
     [MeansImplicitUse(ImplicitUseTargetFlags.WithMembers)]
@@ -12,6 +12,6 @@ namespace NUnit.Specifications
             Subject = subject;
         }
 
-        public string Subject { get; set; }
+        public string Subject { get; }
     }
 }

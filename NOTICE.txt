@@ -1,0 +1,7 @@
+Arbor.Specifications.NUnit
+Copyright 2017 Niklas Lundberg
+
+NUnit.Specifications
+https://github.com/derekgreer/nunit.specifications
+License: MIT License (http://www.opensource.org/licenses/mit-license.php)
+Copyright 2015 Derek B. Greer

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace NUnit.Specifications.Specs
+namespace Arbor.Specifications.NUnit.Specs
 {
     public class ControlTests
     {

@@ -1,6 +1,6 @@
-# NUnit.Specifications
+# Arbor.Specifications.NUnit
 
-NUnit.Specifications is a context/specification library for use with the NUnit testing framework.
+Arbor.Specifications.NUnit is a context/specification library for use with the NUnit testing framework based on https://github.com/derekgreer/nunit.specifications.
 
 # Quickstart
 
@@ -8,28 +8,26 @@ The following is an example NUnit test written using the ContextSpecification ba
 
 ```C#
 using NUnit.Framework;
-using NUnit.Specifications;
+using Arbor.Specifications.NUnit;
 
 public class OrderSpecs
 {
 	[Subject("Order Processing")]
-	public class when_a_customer_places_an_order: ContextSpecification
+	public class OrderSpecification : ContextSpecification
 	{
 		static OrderService _orderService;
 		static bool _results;
 		static Order _order;
 		
-		Establish context = () =>
+		Given an_order_is_created = async () =>
 		{
 			_orderService = new OrderService();
 			_order = new Order();
 		};
 		
-		Because of = () => _results = _orderService.PlaceOrder(_order);
+		When placing_order = async () => _results = await _orderService.PlaceOrderAsync(_order);
 
-		It should_successfully_place_the_order = () => Assert.IsTrue(_results);
+		It should_successfully_place_the_order = async () => Assert.IsTrue(_results);
 	}
 }
 ```
-
-See the [NUnit.Specifications Wiki](https://github.com/derekgreer/nunit.specifications/wiki) for more information and examples.
