@@ -149,6 +149,19 @@ namespace Arbor.Specifications.NUnit
             }
         }
 
+        public async Task RunObservationsAsync()
+        {
+            IEnumerable<TestCaseData> thenDelegates = GetObservations().OfType<TestCaseData>();
+
+            foreach (TestCaseData thenDelegate in thenDelegates)
+            {
+                if (thenDelegate.OriginalArguments.FirstOrDefault() is Then thenDelegateAsync)
+                {
+                    await ObservationsAsync(thenDelegateAsync);
+                }
+            }
+        }
+
         public IEnumerable GetObservations()
         {
             Type currentType = GetType();
@@ -198,7 +211,7 @@ namespace Arbor.Specifications.NUnit
         }
 
         [Test]
-        [SpecificationSource("GetObservations")]
+        [SpecificationSource(nameof(GetObservations))]
         public async Task ObservationsAsync([NotNull] Then thenDelegateAsync)
         {
             if (thenDelegateAsync == null)
@@ -211,10 +224,10 @@ namespace Arbor.Specifications.NUnit
                 throw new ArgumentNullException(nameof(thenDelegateAsync));
             }
 
-            if (Exception != null)
-            {
-                throw Exception;
-            }
+            //if (Exception != null)
+            //{
+            //    throw Exception;
+            //}
 
             try
             {
@@ -223,6 +236,7 @@ namespace Arbor.Specifications.NUnit
             catch (Exception ex)
             {
                 Exception = ex;
+                throw;
             }
         }
     }
